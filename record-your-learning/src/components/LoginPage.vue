@@ -25,7 +25,11 @@
                 <a class="find_user_info" href="/">Forgot your id/pw?</a>
                 <div class="loginBox_button">
                     <button type="button">Sign in</button>
-                    <button type="button">Sign up</button>
+                    <!-- <button type="button">Sign up</button> -->
+                    <button type="button" id="show-modal" @click="showModal = true">Sign up</button>
+                    <signup-modal v-if="showModal" @close="showModal = false">
+                        
+                    </signup-modal>
                 </div>
             </div>
         </div>
@@ -33,8 +37,17 @@
 </template>
 
 <script>
-export default {
+import SignupModal from './SignupModal.vue'
 
+export default {
+    data: function() {
+        return {
+            showModal: false
+        }
+    },
+    components: {
+        'SignupModal': SignupModal
+    }
 }
 </script>
 
@@ -47,38 +60,37 @@ export default {
     }
     .login-left {
         width: 50%;
-        padding: 120px 0 0 120px;
+        padding: 90px 0 0 90px;
         box-sizing: border-box;
     }
     .login-logo {
         display: flex;
-        align-items: flex-end;
     }
     .login-logo > img {
-        margin-right: 20px;
-        width: 150px;
+        margin-right: 15px;
+        width: 8rem;
     }
     .login-logo_title {
         cursor: default;
-        height: 140px;
+        height: 128px;
         display: flex;
         flex-direction: column;
         justify-content: space-between;
         color: white;
-        font-size: 40px;
+        font-size: 2.5rem;
         font-weight: 600;
     }
     .login-welcome {
-        margin-top: 78px;
+        margin-top: 50px;
         cursor: default;
         color: white;
-        font-size: 40px;
+        font-size: 2rem;
         font-weight: normal;
         line-height: 1.33;
     }
     .login-welcome :nth-child(1) {
         margin-bottom: 20px;
-        font-size: 60px;
+        font-size: 3rem;
         font-weight: 600;
     }
     .login-right {
