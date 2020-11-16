@@ -31,5 +31,6 @@ export default {
   }
   button {
     border:none;
+    cursor: pointer;
   }
 </style>

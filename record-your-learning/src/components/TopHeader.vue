@@ -1,7 +1,7 @@
 <template>
     <div id="top-header">
         <input id="search" type="text" placeholder="Search">
-        <i class="fas fa-search"></i>
+        <i class="fab fa-sistrix"></i>
         <button type="button" class="top_button">LOGOUT</button>
         <button type="button" class="top_button">MODIFY</button>
     </div>
@@ -33,7 +33,7 @@ export default {
         color: #c2c2c2;
         font-size: 16px;
     }
-    .fa-search {
+    .fa-sistrix {
         width: 35px;
         height: 35px;
         border-radius: 20px;

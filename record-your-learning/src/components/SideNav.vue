@@ -103,6 +103,7 @@ export default {
         width: 60px;
         margin-bottom: 10px;
         border-radius: 40px;
+        cursor: pointer;
     }
 
     .nav {
@@ -116,6 +117,7 @@ export default {
     }
     .nav_title {
         padding: 15px 0 15px 20px;
+        cursor: default;
     }
     .sub_title_box {
         width: 80px;
@@ -125,6 +127,7 @@ export default {
         margin-bottom: 10px;
         color: #A1A1A1;
         font-size: 16px;
+        cursor: default;
     }
     .nav_conA {
         height: 50px;
@@ -164,12 +167,13 @@ export default {
         text-align: center;
         position: relative;
         bottom: -60px;
+        cursor: pointer;
     }
     .fa-envelope {
         width: 25px;
         height: 25px;
         padding: 5px 0;
-        margin-right: 20px;
+        margin-right: 10px;
         background-color: #fff;
         text-align: center;
         border-radius: 15px;
