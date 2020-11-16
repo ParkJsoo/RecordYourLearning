@@ -1,16 +1,14 @@
 <template>
-  <div id="app">
-    <login-page></login-page>
-  </div>
+    <div id="app">
+      <router-view></router-view>
+    </div>
 </template>
 
 <script>
-import LoginPage from './components/LoginPage.vue'
+import router from './router'
 
 export default {
-  components: {
-    'LoginPage': LoginPage
-  }
+  router
 }
 </script>
 
@@ -21,5 +19,17 @@ export default {
         width: 100%;
         height: 100%;
   }
-  *:focus {outline:none;}
+  *:focus {
+    outline:none;
+  }
+  a {
+    color: black;
+    text-decoration: none;
+  }
+  input {
+    border: none;
+  }
+  button {
+    border:none;
+  }
 </style>

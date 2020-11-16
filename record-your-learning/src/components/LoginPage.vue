@@ -22,14 +22,13 @@
                     <label for="user_id">USER ID</label><input id="user_id" v-model="user_id" type="text">
                     <label for="user_pw">USER PASSWORD</label><input id="user_pw" v-model="user_pw" type="password">
                 </div>
-                <a class="find_user_info" href="/">Forgot your id/pw?</a>
+                <a class="find_user_info" href="/">Forgot your ID/PW?</a>
                 <div class="loginBox_button">
-                    <button type="button">Sign in</button>
-                    <!-- <button type="button">Sign up</button> -->
+                    <button type="button" @click="login">Sign in</button>
                     <button type="button" id="show-modal" @click="showModal = true">Sign up</button>
-                    <signup-modal v-if="showModal" @close="showModal = false">
+                    <join-modal v-if="showModal" @close="showModal = false">
                         
-                    </signup-modal>
+                    </join-modal>
                 </div>
             </div>
         </div>
@@ -37,7 +36,7 @@
 </template>
 
 <script>
-import SignupModal from './SignupModal.vue'
+import JoinModal from './JoinModal.vue'
 
 export default {
     data: function() {
@@ -46,7 +45,12 @@ export default {
         }
     },
     components: {
-        'SignupModal': SignupModal
+        'JoinModal': JoinModal
+    },
+    methods: {
+        login : function() {
+            this.$router.push('/main-page/board')
+        }
     }
 }
 </script>
@@ -131,6 +135,9 @@ export default {
     .login_info > input {
         width: 300px;
         height: 50px;
+        padding-left: 20px;
+        font-size: 20px;
+        font-weight: 500;
         border-radius: 35px;
         border: solid 1px #dbdbdb;
         background-color: #f9f9f9;

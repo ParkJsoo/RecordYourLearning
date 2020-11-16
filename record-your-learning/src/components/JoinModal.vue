@@ -83,7 +83,7 @@ export default {
     }
 
     .modal-body > label {
-        margin-top: 15px;
+        margin-top: 10px;
         color: #9b9b9b;
         font-size: 18px;
         font-weight: 600;
@@ -91,6 +91,9 @@ export default {
     .modal-body > input {
         margin-top: 10px;
         margin-bottom: 10px;
+        padding-left: 20px;
+        font-size: 20px;
+        font-weight: 500;
         width: 300px;
         height: 50px;
         border-radius: 35px;
