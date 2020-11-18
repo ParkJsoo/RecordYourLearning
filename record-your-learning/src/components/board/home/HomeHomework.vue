@@ -37,9 +37,8 @@ export default {
 
 <style scoped>
     #home-homeworkBox {
-        width: 550px;
-        height: 290px;
-        padding: 30px;
+        height: 150px;
+        padding: 15px;
         border-radius: 8px;
         box-shadow: 0 3px 6px 0 rgba(66, 66, 66, 0.16);
         border: solid 1px #d6d6d6;
@@ -47,50 +46,50 @@ export default {
         box-sizing: border-box;
     }
     .home-homeBox-header {
-        height: 40px;
+        height: 20px;
         border-bottom: solid 1px #cccccc;
     }
     .home-homeBox-header_left {
         float: left;
-        font-size: 20px;
+        font-size: 12px;
         font-weight: 600;
         color: #24b6ba;
     }
     .home-homeBox-header_right {
         float: right;
-        width: 70px;
-        height: 25px;
+        width: 50px;
+        height: 15px;
         border-radius: 20px;
         background-color: #f3f3f3;
-        font-size: 12px;
+        font-size: 8px;
         font-weight: 600;
         color: #9e9e9e;
     }
     .home-homeworkList {
-        height: 25px;
-        margin: 15px 0;
+        height: 15px;
+        margin: 5px 0;
     }
     .home-homeworkList-item {
-        height: 25px;
+        /* height: 25px; */
         color: #909090;
-        font-size: 16px;
+        font-size: 8px;
         vertical-align: middle;
     }
     .home-homeworkList-near {
-        width: 60px;
-        height: 25px;
+        width: 40px;
+        height: 15px;
         float: right;
-        font-size: 15px;
+        font-size: 8px;
         font-weight: 600;
         color: #fff;
         border-radius: 20px;
         background-color: #24b6ba;
     }
     .home-homeworkList-far {
-        width: 60px;
-        height: 25px;
+        width: 40px;
+        height: 15px;
         float: right;
-        font-size: 15px;
+        font-size: 8px;
         font-weight: 600;
         color: #fff;
         border-radius: 20px;

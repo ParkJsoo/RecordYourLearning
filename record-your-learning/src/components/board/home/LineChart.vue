@@ -6,18 +6,6 @@ export default {
     data () {
       return {
         gradient: null,
-        // datacollection: {
-        //     labels: ['Jul', 'Aug', 'Sep', 'Oct', 'Nov'], 
-        //     datasets: [
-        //         {
-        //             backgroundColor: this.gradient,
-        //             pointBackgroundColor: '#24b6ba',
-        //             borderWidth: 2,
-        //             borderColor: "#24b6ba",
-        //             data: [35, 55, 75, 50, 55]
-        //         }
-        //     ]
-        // },
         options: {
             scales: {
                 yAxes: [{
@@ -54,7 +42,7 @@ export default {
         this.gradient = this.$refs.canvas.getContext('2d').createLinearGradient(0, 0, 0, 450)
 
         this.gradient.addColorStop(0, 'rgba(36, 182, 186, 0.3)')
-        this.gradient.addColorStop(0.5, 'rgba(18, 91, 93, 0)')
+        this.gradient.addColorStop(0.2, 'rgba(18, 91, 93, 0)')
         this.gradient.addColorStop(1, 'rgba(255, 255, 255, 0)');
 
         this.renderChart({

@@ -36,7 +36,8 @@
             </div>
         </div>
         <div class="mail">
-            <i class="fas fa-envelope"></i>jeongsoo0314@naver.com
+            <i class="fas fa-envelope"></i>
+            <span>jeongsoo0314@naver.com</span>
         </div>
     </div>
 </template>
@@ -53,6 +54,7 @@ export default {
     },
     created() {
         this.$router.push({ name: 'home'})
+        this.isActive1 = true
     },
     methods: {
         goHome: function() {
@@ -67,14 +69,17 @@ export default {
 
 <style scoped>
     #side-nav {
-        width: 400px;
         height: 100%;
         background-color: #323232;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        align-items: center;
     }
     .main-logo {
         width: 180px;
         display: flex;
-        margin: 50px auto;
+        margin: 50px 0 30px 0;
     }
     .main-logo > img {
         margin-right: 10px;
@@ -107,13 +112,14 @@ export default {
     }
 
     .nav {
-        width: 400px;
+        width: 100%;
         box-sizing: border-box;
         padding-left: 50px;
         color: #fff;
         font-size: 20px;
         font-weight: 500;
         background-color: #323232;
+        margin-bottom: 50px;
     }
     .nav_title {
         padding: 15px 0 15px 20px;
@@ -139,7 +145,7 @@ export default {
         background-color: #f3f3f3;
         border-radius: 30px 0 0 30px;
         animation-name: move;
-        animation-duration: 0.3s;
+        animation-duration: 0.5s;
         transform-origin: right;
     }
     .upsideA {
@@ -165,8 +171,6 @@ export default {
         color: hsl(0, 0%, 63%);
         font-size: 16px;
         text-align: center;
-        position: relative;
-        bottom: -60px;
         cursor: pointer;
     }
     .fa-envelope {

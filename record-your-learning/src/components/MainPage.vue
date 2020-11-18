@@ -1,6 +1,6 @@
 <template>
     <div id="main-page">
-        <side-nav></side-nav>
+        <side-nav class="nav-container"></side-nav>
         <div class="main-container">
             <top-header></top-header>
             <router-view></router-view>
@@ -26,8 +26,12 @@ export default {
         display: flex;
         background-color: #f3f3f3;
     }
+    .nav-container {
+        width: 20%;
+        height: 100%;
+    }
     .main-container {
-        width: 100%;
+        width: 80%;
         height: 100%;
     }
 </style>

@@ -22,7 +22,7 @@
                     <label for="user_id">USER ID</label><input id="user_id" v-model="user_id" type="text">
                     <label for="user_pw">USER PASSWORD</label><input id="user_pw" v-model="user_pw" type="password">
                 </div>
-                <a class="find_user_info" href="/">Forgot your ID/PW?</a>
+                <router-link to="/" class="find_user_info">Forgot your ID/PW?</router-link>
                 <div class="loginBox_button">
                     <button type="button" @click="login">Sign in</button>
                     <button type="button" id="show-modal" @click="showModal = true">Sign up</button>
