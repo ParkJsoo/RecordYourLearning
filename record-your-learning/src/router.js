@@ -4,6 +4,7 @@ import LoginPage from './components/LoginPage.vue';
 import MainPage from './components/MainPage.vue';
 import BoardHome from './components/board/BoardHome.vue';
 import BoardHomework from './components/board/BoardHomework.vue';
+import Today from './components/board/date/Today.vue';
 
 Vue.use(VueRouter);
 
@@ -15,6 +16,7 @@ export default new VueRouter({
             children: [
                 { path: 'home', name: 'home', component: BoardHome },
                 { path: 'homework', name: 'homework', component: BoardHomework },
+                { path: 'Today', name: 'Today', component: Today },
             ]
         },
     ],

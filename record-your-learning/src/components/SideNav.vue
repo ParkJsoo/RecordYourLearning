@@ -26,7 +26,7 @@
             <div v-bind:class="{ downsideA: isActive3 }">
                 <div class="nav_conB" v-bind:class="{ downsideB: isActive3 }">
                     <div v-on:mouseover = "isActive3 = true" v-on:mouseout = "isActive3 = false" class="sub_title_box">
-                        <div class="sub_title" >Today</div>
+                        <router-link to="today" class="sub_title" >Today</router-link>
                         <div class="sub_title" >Tomorrow</div>
                         <div class="sub_title" >This Week</div>
                         <div class="sub_title" >Next Week</div>
@@ -54,7 +54,6 @@ export default {
     },
     created() {
         this.$router.push({ name: 'home'})
-        this.isActive1 = true
     },
     methods: {
         goHome: function() {
@@ -172,6 +171,7 @@ export default {
         font-size: 16px;
         text-align: center;
         cursor: pointer;
+        margin-bottom: 20px;
     }
     .fa-envelope {
         width: 25px;

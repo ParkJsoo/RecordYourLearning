@@ -10,14 +10,19 @@
         <div class="home-sectionB">
             <div class="home-sectionB_1">
                 <doughnut-chartA class="canvas"></doughnut-chartA>
+                <span class="doughnut_text">33%</span>
             </div>
             <div class="home-sectionB_1">
                 <doughnut-chartB class="canvas"></doughnut-chartB>
+                <span class="doughnut_text">50%</span>
             </div>
             <div class="home-sectionB_1">
                 <doughnut-chartC class="canvas"></doughnut-chartC>
+                <span class="doughnut_text">85%</span>
             </div>
-            <div class="home-sectionB_2"></div>
+            <div class="home-sectionB_2">
+                <home-calendar></home-calendar>
+            </div>
         </div>
     </div>
 </template>
@@ -29,6 +34,7 @@ import HomeGraph from './home/HomeGraph.vue'
 import DoughnutChartA from './home/DoughnutChartA'
 import DoughnutChartB from './home/DoughnutChartB'
 import DoughnutChartC from './home/DoughnutChartC'
+import HomeCalendar from './home/HomeCalendar'
 
 export default {
     components: {
@@ -38,6 +44,7 @@ export default {
         'DoughnutChartA': DoughnutChartA,
         'DoughnutChartB': DoughnutChartB,
         'DoughnutChartC': DoughnutChartC,
+        'HomeCalendar': HomeCalendar,
     }
 }
 </script>
@@ -81,13 +88,21 @@ export default {
     }
     .home-sectionB_2 {
         width: 35%;
+        height: 250px;
         margin: 0 auto;
-        border-radius: 8px;
+        /* border-radius: 8px;
         box-shadow: 0 3px 6px 0 rgba(66, 66, 66, 0.16);
         border: solid 1px #d6d6d6;
-        background-color: #ffffff;
+        background-color: #ffffff; */
     }
     .canvas {
         height: 200px;
+    }
+    .doughnut_text {
+        position: relative;
+        top: -77%;
+        left: 37%;
+        font-size: 30px;
+        color: #909090;
     }
 </style>

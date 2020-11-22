@@ -7,23 +7,23 @@
         <ul class="home-homeworkList-group">
             <li class="home-homeworkList">
                 <span class="home-homeworkList-item">숙제</span>
-                <button type="button" class="home-homeworkList-near">D - 1</button>
+                <div class="home-homeworkList-near">D - 1</div>
             </li>
             <li class="home-homeworkList">
                 <span class="home-homeworkList-item">과제</span>
-                <button type="button" class="home-homeworkList-near">D - 3</button>
+                <div class="home-homeworkList-near">D - 3</div>
             </li>
             <li class="home-homeworkList">
                 <span class="home-homeworkList-item">레포트</span>
-                <button type="button" class="home-homeworkList-far">D - 4</button>
+                <div class="home-homeworkList-far">D - 4</div>
             </li>
             <li class="home-homeworkList">
                 <span class="home-homeworkList-item">레포트</span>
-                <button type="button" class="home-homeworkList-far">D - 5</button>
+                <div class="home-homeworkList-far">D - 5</div>
             </li>
             <li class="home-homeworkList">
                 <span class="home-homeworkList-item">레포트</span>
-                <button type="button" class="home-homeworkList-far">D - 7</button>
+                <div class="home-homeworkList-far">D - 7</div>
             </li>
         </ul>
     </div>
@@ -70,7 +70,6 @@ export default {
         margin: 5px 0;
     }
     .home-homeworkList-item {
-        /* height: 25px; */
         color: #909090;
         font-size: 8px;
         vertical-align: middle;
@@ -78,21 +77,27 @@ export default {
     .home-homeworkList-near {
         width: 40px;
         height: 15px;
+        padding: 2px 0;
         float: right;
         font-size: 8px;
         font-weight: 600;
         color: #fff;
         border-radius: 20px;
         background-color: #24b6ba;
+        text-align: center;
+        box-sizing: border-box;
     }
     .home-homeworkList-far {
         width: 40px;
         height: 15px;
+        padding: 2px 0;
         float: right;
         font-size: 8px;
         font-weight: 600;
         color: #fff;
         border-radius: 20px;
         background-color: #6a6a6a;
+        text-align: center;
+        box-sizing: border-box;
     }
 </style>
