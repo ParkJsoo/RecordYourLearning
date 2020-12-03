@@ -25,8 +25,8 @@
                 <router-link to="/" class="find_user_info">Forgot your ID/PW?</router-link>
                 <div class="loginBox_button">
                     <button type="button" @click="login">Sign in</button>
-                    <button type="button" id="show-modal" @click="showModal = true">Sign up</button>
-                    <join-modal v-if="showModal" @close="showModal = false">
+                    <button type="button" id="show-join" @click="showJoin = true">Sign up</button>
+                    <join-modal v-if="showJoin" @close="showJoin = false">
                         
                     </join-modal>
                 </div>
@@ -41,7 +41,7 @@ import JoinModal from './JoinModal.vue'
 export default {
     data: function() {
         return {
-            showModal: false
+            showJoin: false
         }
     },
     components: {
@@ -138,6 +138,7 @@ export default {
         padding-left: 20px;
         font-size: 20px;
         font-weight: 500;
+        color: #323232;
         border-radius: 35px;
         border: solid 1px #dbdbdb;
         background-color: #f9f9f9;

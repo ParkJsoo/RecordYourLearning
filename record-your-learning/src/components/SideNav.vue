@@ -9,6 +9,7 @@
             </div>
         </div>
         <div class="main-profile">
+            <span class="notification">1</span>
             <img src="../assets/images/member-jk.jpg">
             <div class="main-userName">JungKook</div>
         </div>
@@ -27,10 +28,10 @@
                 <div class="nav_conB" v-bind:class="{ downsideB: isActive3 }">
                     <div v-on:mouseover = "isActive3 = true" v-on:mouseout = "isActive3 = false" class="sub_title_box">
                         <router-link to="today" class="sub_title" >Today</router-link>
-                        <div class="sub_title" >Tomorrow</div>
-                        <div class="sub_title" >This Week</div>
-                        <div class="sub_title" >Next Week</div>
-                        <div class="sub_title" >Month</div>
+                        <router-link to="tomorrow" class="sub_title" >Tomorrow</router-link>
+                        <router-link to="this-week" class="sub_title" >This Week</router-link>
+                        <router-link to="next-week" class="sub_title" >Next Week</router-link>
+                        <router-link to="month" class="sub_title" >Month</router-link>
                     </div>
                 </div>
             </div>
@@ -68,6 +69,7 @@ export default {
 
 <style scoped>
     #side-nav {
+        width: 380px;
         height: 100%;
         background-color: #323232;
         display: flex;
@@ -102,12 +104,27 @@ export default {
         font-size: 20px;
         font-weight: 600;
         background-color: #323232;
+        position: relative;
     }
     .main-profile > img {
         width: 60px;
         margin-bottom: 10px;
         border-radius: 40px;
         cursor: pointer;
+    }
+    .notification {
+        width: 20px;
+        height: 20px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: #24b6ba;
+        border-radius: 10px;
+        font-size: 15px;
+        font-weight: normal;
+        position: absolute;
+        right: 15px;
+        top: 40px;
     }
 
     .nav {
@@ -127,6 +144,8 @@ export default {
     .sub_title_box {
         width: 80px;
         padding: 10px 0 0 35px;
+        display: flex;
+        flex-direction: column;
     }
     .sub_title {
         margin-bottom: 10px;

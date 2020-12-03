@@ -3,7 +3,10 @@
         <div class="homework-header">
             <div class="homework-title">Home work</div>
             <div class="homework-header-button">
-                <button class="homework-header-new">NEW</button>
+                <button class="homework-header-new" @click="newHomework = true">NEW</button>
+                <new-homework v-if="newHomework" @close-new="newHomework = false">
+                        
+                </new-homework>
                 <button class="homework-header-delete">DELETE</button>
             </div>
         </div>
@@ -101,8 +104,17 @@
 </template>
 
 <script>
-export default {
+import NewHomework from './modal/NewHomework.vue'
 
+export default {
+    data: function() {
+        return {
+            newHomework: false
+        }
+    },
+    components: {
+        'NewHomework': NewHomework
+    },
 }
 </script>
 
@@ -153,7 +165,7 @@ export default {
     }
     .homework-item {
         width: 500px;
-        height: 170px;
+        height: 180px;
         margin-bottom: 30px;
         padding: 20px;
         border-radius: 8px;
@@ -206,7 +218,7 @@ export default {
     .homework-item-text {
         width: 100%;
         margin-top: 10px;
-        padding: 10px;
+        padding: 15px;
         border-radius: 5px;
         background-color: #f3f3f3;
         box-sizing: border-box;
@@ -218,7 +230,7 @@ export default {
         width: 100%;
         height: 170px;
         margin-top: 10px;
-        padding: 10px;
+        padding: 15px;
         border-radius: 5px;
         background-color: #f3f3f3;
         box-sizing: border-box;

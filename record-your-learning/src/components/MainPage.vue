@@ -22,16 +22,18 @@ export default {
 
 <style scoped>
     #main-page {
+        width: 100%;
         height: 100%;
         display: flex;
         background-color: #f3f3f3;
     }
     .nav-container {
-        width: 20%;
+        width: 100%;
         height: 100%;
     }
     .main-container {
-        width: 80%;
+        width: 100%;
         height: 100%;
+        overflow: hidden;
     }
 </style>

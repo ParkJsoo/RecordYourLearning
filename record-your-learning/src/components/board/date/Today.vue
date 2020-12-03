@@ -61,11 +61,11 @@
                         <span class="time-title">Time</span>
                         <span class="time-text">14:00 ~ 16:00</span>
                     </div>
-                    <textarea class="today-item-text">
+                    <div class="today-item-text">
                         파이썬 프로그래밍 5주차 강의내용 복습하고 6주차 강의 수강하기
                         강의 수강 후 강의내용 정리하기
                         다음주에 배울 내용 예습하기
-                    </textarea>
+                    </div>
                 </div>
             </div>
             <div class="today-itemA">
@@ -126,8 +126,8 @@ export default {
         color: #ffffff;
     }
     .today-board {
-        width: 85%;
-        margin: 0 auto;
+        width: 100%;
+        padding: 0 50px;
         display: flex;
         flex-wrap: wrap;
         justify-content: space-between;
@@ -217,12 +217,12 @@ export default {
     .today-item-text {
         width: 100%;
         margin-bottom: 20px;
-        padding: 10px;
+        padding: 15px;
         color: #909090;
+        line-height: 1.7;
         border: none;
         border-radius: 13px;
         background-color: #f8f8f8;
         box-sizing: border-box;
-        resize: none;
     }
 </style>
