@@ -2,7 +2,7 @@
     <div id="home-todayBox">
         <div class="home-homeBox-header">
             <span class="home-homeBox-header_left">Today</span>
-            <button class="home-homeBox-header_right" type="button">MORE</button>
+            <button class="home-homeBox-header_right" type="button" @click="goToday">MORE</button>
         </div>
         <ul class="home-todayList-group">
             <li class="home-todayList">
@@ -27,7 +27,11 @@
 
 <script>
 export default {
-
+    methods: {
+        goToday : function() {
+            this.$router.push('/main-page/board/today')
+        }
+    }
 }
 </script>
 

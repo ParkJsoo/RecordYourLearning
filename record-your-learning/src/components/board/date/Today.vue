@@ -3,7 +3,10 @@
         <div class="today-header">
             <div class="today-title">Today</div>
             <div class="today-header-button">
-                <button class="today-header-new">NEW</button>
+                <button class="today-header-new" @click="newToday = true">NEW</button>
+                <new-today v-if="newToday" @close-new="newToday = false">
+                    
+                </new-today>
                 <button class="today-header-delete">DELETE</button>
             </div>
         </div>
@@ -80,8 +83,17 @@
 </template>
 
 <script>
-export default {
+import NewToday from '../modal/NewToday.vue'
 
+export default {
+    data: function() {
+        return {
+            newToday: false
+        }
+    },
+    components: {
+        'NewToday': NewToday
+    },
 }
 </script>
 
@@ -92,19 +104,16 @@ export default {
     .today-header {
         width: 100%;
         height: 75px;
-        margin-top: 40px;
-        padding: 0 80px;
+        padding: 50px 80px;
         box-sizing: border-box;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
     }
     .today-title {
-        height: 35px;
         font-size: 30px;
         font-weight: 600;
         color: #24b6ba;
-    }
-    .today-header-button {
-        height: 30px;
-        float: right;
     }
     .today-header-new {
         width: 80px;

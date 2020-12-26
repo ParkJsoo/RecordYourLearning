@@ -3,7 +3,10 @@
         <div class="tomorrow-header">
             <div class="tomorrow-title">Tomorrow</div>
             <div class="tomorrow-header-button">
-                <button class="tomorrow-header-new">NEW</button>
+                <button class="tomorrow-header-new" @click="newTomorrow = true">NEW</button>
+                <new-tomorrow v-if="newTomorrow" @close-new="newTomorrow = false">
+                    
+                </new-tomorrow>
                 <button class="tomorrow-header-delete">DELETE</button>
             </div>
         </div>
@@ -80,8 +83,17 @@
 </template>
 
 <script>
-export default {
+import NewTomorrow from '../modal/NewTomorrow.vue'
 
+export default {
+    data: function() {
+        return {
+            newTomorrow: false
+        }
+    },
+    components: {
+        'NewTomorrow': NewTomorrow
+    },
 }
 </script>
 
@@ -92,19 +104,16 @@ export default {
     .tomorrow-header {
         width: 100%;
         height: 75px;
-        margin-top: 40px;
-        padding: 0 80px;
+        padding: 50px 80px;
         box-sizing: border-box;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
     }
     .tomorrow-title {
-        height: 35px;
         font-size: 30px;
         font-weight: 600;
         color: #24b6ba;
-    }
-    .tomorrow-header-button {
-        height: 30px;
-        float: right;
     }
     .tomorrow-header-new {
         width: 80px;

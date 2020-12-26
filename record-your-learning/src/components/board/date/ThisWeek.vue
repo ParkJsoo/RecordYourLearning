@@ -148,12 +148,13 @@ export default {
     .week-title {
         width: 100%;
         height: 75px;
-        margin-top: 40px;
-        padding: 0 80px;
+        padding: 50px 80px;
         box-sizing: border-box;
         font-size: 30px;
         font-weight: 600;
         color: #24b6ba;
+        display: flex;
+        align-items: center;
     }
     .week-board {
         width: 100%;

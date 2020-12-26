@@ -8,19 +8,19 @@
                 <div class="modal-container">
                     <div class="modal-header">
                         <div name="header">
-                            Homework
+                            Today
                         </div>
                     </div>
                     <div class="modal-body" name="body">
-                        <label for="homework_title">Title</label>
-                        <input class="homeworkInput" id="homework_title" v-model="homework_title" type="text">
-                        <label for="homework_deadline1">Deadline</label>
+                        <label for="today_title">Title</label>
+                        <input class="todayInput" id="today_title" v-model="today_title" type="text">
+                        <label for="today_time1">Time</label>
                         <div>
-                            <input class="homeworkInput inputHalf" id="homework_deadline1" v-model="homework_deadline1" type="date"> ~
-                            <input class="homeworkInput inputHalf" id="homework_deadline2" v-model="homework_deadline2" type="date">
+                            <input class="todayInput inputHalf" id="today_time1" v-model="today_time1" type="time"> ~
+                            <input class="todayInput inputHalf" id="today_time2" v-model="today_time2" type="time">
                         </div>
-                        <label for="professor">Professor</label>
-                        <input class="homeworkInput inputHalf" id="professor" v-model="professor" type="text">
+                        <label for="category">Category</label>
+                        <input class="todayInput inputHalf" id="category" v-model="category" type="text">
                         <label for="contents">Contents</label><textarea id="contents" v-model="contents"></textarea>
                     </div>
                     <div class="modal-footer" name="footer">
@@ -93,7 +93,7 @@ export default {
         font-size: 18px;
         font-weight: 600;
     }
-    .homeworkInput {
+    .todayInput {
         margin: 10px 0;
         padding-left: 20px;
         font-size: 15px;
@@ -110,6 +110,7 @@ export default {
     }
     .inputHalf  {
         width: 200px;
+        padding-right: 10px;
     }
     #contents {
         width: 450px;

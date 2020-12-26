@@ -2,7 +2,7 @@
     <div id="home-homeworkBox">
         <div class="home-homeBox-header">
             <span class="home-homeBox-header_left">Home Work</span>
-            <button class="home-homeBox-header_right" type="button">MORE</button>
+            <button class="home-homeBox-header_right" type="button" @click="goHomework">MORE</button>
         </div>
         <ul class="home-homeworkList-group">
             <li class="home-homeworkList">
@@ -31,7 +31,11 @@
 
 <script>
 export default {
-
+    methods: {
+        goHomework : function() {
+            this.$router.push('/main-page/board/homework')
+        }
+    }
 }
 </script>
 
