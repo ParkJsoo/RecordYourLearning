@@ -16,42 +16,65 @@
             </div>
         </div>
         <div class="login-right">
-            <div class="loginBox">
+            <form class="loginBox" @submit.prevent="submitLogin">
                 <div class="loginBox_title">Sign In</div>
-                <div class="login_info">
-                    <label for="user_email">USER E-MAIL</label><input id="user_email" v-model="user_email" type="text">
-                    <label for="user_pw">USER PASSWORD</label><input id="user_pw" v-model="user_pw" type="password">
-                </div>
-                <router-link to="/" class="find_user_info">Forgot your Password?</router-link>
-                <div class="loginBox_button">
-                    <button type="button" @click="login">Sign in</button>
-                    <button type="button" id="show-join" @click="showJoin = true">Sign up</button>
-                    <join-modal v-if="showJoin" @close="showJoin = false">
-                        
-                    </join-modal>
-                </div>
-            </div>
+                    <div class="login_info">
+                        <label for="user_email">USER E-MAIL</label><input id="user_email" v-model="loginData.user_email" type="text">
+                        <label for="user_pw">USER PASSWORD</label><input id="user_pw" v-model="loginData.user_pw" type="password">
+                    </div>
+                    <router-link to="/" class="find_user_info">Forgot your Password?</router-link>
+                    <div class="loginBox_button">
+                        <button :disabled="!isEmailValid" type="submit" >Sign in</button>
+                        <button id="show-join" @click="showJoin = true">Sign up</button>
+                    </div>
+                <join-modal v-if="showJoin" @close="showJoin = false">
+                </join-modal>
+            </form>
         </div>
     </div>
 </template>
 
 <script>
 import JoinModal from './JoinModal.vue'
+import { validateEmail } from '../utils/validation'
 
 export default {
     data: function() {
         return {
-            user_email : '',
-            user_pw : '',
+            loginData: {
+                user_email : '',
+                user_pw : ''
+            },
             showJoin: false
         }
     },
     components: {
         'JoinModal': JoinModal
     },
+    computed: {
+        isEmailValid() {
+            return validateEmail(this.loginData.user_email)
+        }
+    },
     methods: {
-        login : function() {
-            this.$router.push('/main-page/board/home')
+        submitLogin: function (event) { // eslint-disable-line no-unused-vars
+            this.$http.post('/api/login', { 
+                loginData: this.loginData
+            })
+            .then((res) => {
+                if (res.data.success == true) {
+                    // const path = `/main-page/board/home`
+                    // if (this.$route.path !== path) this.$router.push(path)
+                    // if(this.$route.path!=='/main-page/board/home') this.$router.push('/main-page/board/home')
+                    this.$router.push('/main-page/board/home')
+                }
+                if (res.data.success == false) {
+                    alert(res.data.message);
+                }
+            })
+            .catch(function (error) { // eslint-disable-line no-unused-vars
+                alert(error.message)
+            })
         }
     }
 }

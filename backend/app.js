@@ -17,7 +17,8 @@ var connection = mysql.createConnection({
 connection.connect();
 
 var indexRouter = require('./routes/index');
-var joinRouter = require('./routes/join');
+var join = require('./routes/user/join');
+var login = require('./routes/user/login');
 
 var app = express();
 
@@ -32,7 +33,8 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', indexRouter);
-app.use('/join', joinRouter);
+app.use('/join', join);
+app.use('/login', login);
 
 app.use(express.static('public'))
 app.use(bodyParser.json())

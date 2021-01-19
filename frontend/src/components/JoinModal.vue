@@ -13,13 +13,11 @@
                     </div>
                     <form @submit.prevent="submitJoin">
                         <div class="modal-body" name="body">
-                            <label for="join_name">USER NAME</label><input id="join_name" v-model="userData.user_name" type="text">
-                            <label for="join_email">USER E-MAIL</label><input id="join_email" v-model="userData.user_email" type="email">
-                            <label for="join_pw">USER PASSWORD</label><input id="join_pw" @keyup="isPasswordValid" v-model="userData.user_pw" type="password">
-                            <label for="join_pw2">USER PASSWORD CHECK</label><input id="join_pw2" @keyup="isPasswordValid" v-model="userData.user_pw2" type="password">
-                            <div>{{ message }}</div>
-                            <!-- <div v-if="formCheck">비밀번호가 일치합니다.</div> -->
-                            <!-- <div v-else>비밀번호가 일치하지 않습니다.</div> -->
+                            <label for="join_name">USER NAME</label><input id="join_name" v-model="joinData.user_name" type="text">
+                            <label for="join_email">USER E-MAIL</label><input id="join_email" v-model="joinData.user_email" type="email">
+                            <label for="join_pw">USER PASSWORD</label><input id="join_pw" @keyup="isPasswordValid" v-model="joinData.user_pw" type="password">
+                            <div class="pw_message" v-bind:class="{success : checked}">{{ message }}</div>
+                            <label for="join_pw2">USER PASSWORD CHECK</label><input id="join_pw2" @keyup="isPasswordValid" v-model="joinData.user_pw2" type="password">
                         </div>
                         <div class="modal-footer" name="footer">
                             <button :disabled="!isEmailValid || !checked" class="signUp-button" type="submit">
@@ -39,36 +37,40 @@ import { validateEmail } from '../utils/validation'
 export default {
     data() {
         return {
-            userData : {
+            joinData : {
                 user_name : '',
                 user_email : '',
                 user_pw : '',
                 user_pw2 : ''
             },
-            message: '',
+            message: '비밀번호는 8~12자 사이의 영문자,숫자 조합이어야 합니다',
             checked: false
         }
     },
     computed: {
         isEmailValid() {
-            return validateEmail(this.userData.user_email)
+            return validateEmail(this.joinData.user_email)
         }
     },
     methods : {
         isPasswordValid: function() {
-            if(this.userData.user_pw.length < 8) {
+            if(this.joinData.user_pw.length < 8) {
                 this.message = '비밀번호 길이는 8자 이상이어야 합니다.'
+                this.checked = false
             }
-            else if(!this.userData.user_pw.match(/([a-zA-Z].*[0-9])|([0-9].*[a-zA-Z])/)) {
-                this.message = '비밀번호는 영문자,숫자,특수문자의 조합이어야 합니다.'
+            else if(!this.joinData.user_pw.match(/([a-zA-Z].*[0-9])|([0-9].*[a-zA-Z])/)) {
+                this.message = '비밀번호는 영문자,숫자의 조합이어야 합니다.'
+                this.checked = false
             }
-            else if(this.userData.user_pw.length > 12) {
+            else if(this.joinData.user_pw.length > 12) {
                 this.message = '비밀번호 길이는 12자 이하여야 합니다.'
+                this.checked = false
             }
-            else if(this.userData.user_pw != this.userData.user_pw2) {
+            else if(this.joinData.user_pw != this.joinData.user_pw2) {
                 this.message = '비밀번호가 일치하지 않습니다.'
+                this.checked = false
             }
-            else if(this.userData.user_pw == this.userData.user_pw2) {
+            else if(this.joinData.user_pw == this.joinData.user_pw2) {
                 this.message = '비밀번호가 일치합니다.'
                 this.checked = true
             }
@@ -78,7 +80,7 @@ export default {
         },
         submitJoin: function (event) { // eslint-disable-line no-unused-vars
             this.$http.post('/api/join', { 
-            userData: this.userData
+            joinData: this.joinData
             })
             .then((res) => {
                 if (res.data.success == true) {
@@ -201,5 +203,16 @@ export default {
     .modal-leave-active .modal-container {
     -webkit-transform: scale(1.1);
         transform: scale(1.1);
+    }
+
+    .pw_message {
+        font-size: 12px;
+        font-weight: 700;
+        color: red;
+    }
+    .success {
+        font-size: 12px;
+        font-weight: 700;
+        color: #30c1c5;
     }
 </style>
