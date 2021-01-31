@@ -18,17 +18,19 @@
     - @fullcalendar/daygrid
     - @fullcalendar/timegrid
 - 백엔드 기술
-  - (나열)
-
-
-## 프로젝트 구조
-
-(프로젝트 구조 설명)
-
-
-## 화면 구성도
-
-(화면 구성도 설명)
+    - node.js
+    - express
+    - express-session
+    - nodemon
+    - pug
+    - mysql
+    - morgan
+    - body-parser
+    - cookie-parser
+    - connect-flash
+    - passport
+    - passport-local
+    - bcrypt
 
 
 ## DB ERD 구조
