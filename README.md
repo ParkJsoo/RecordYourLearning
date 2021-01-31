@@ -6,7 +6,17 @@
 ## 프로젝트 사용 기술
 
 - 프론트엔드 기술
-  - (나열)
+    - vue
+    - vuex
+    - vue-loader
+    - vue-router
+    - vue-chartjs
+    - axios
+    - chart.js
+    - @fullcalendar/vue
+    - @fullcalendar/interaction
+    - @fullcalendar/daygrid
+    - @fullcalendar/timegrid
 - 백엔드 기술
   - (나열)
 
