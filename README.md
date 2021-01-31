@@ -35,4 +35,4 @@
 
 ## DB ERD 구조
 
-(ERD 구조도)
+![erd](https://user-images.githubusercontent.com/61155410/106378509-d7dbc980-63e8-11eb-9a36-2c72391ea8c0.png)
