@@ -5,7 +5,7 @@
 
 ## 프로젝트 사용 기술
 
--**프론트엔드 기술
+- **프론트엔드 기술**
     - vue
     - vuex
     - vue-loader
@@ -17,7 +17,7 @@
     - @fullcalendar/interaction
     - @fullcalendar/daygrid
     - @fullcalendar/timegrid
--**백엔드 기술
+- **백엔드 기술**
     - node.js
     - express
     - express-session
