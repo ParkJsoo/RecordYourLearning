@@ -24,7 +24,7 @@
                     </div>
                     <router-link to="/" class="find_user_info">Forgot your Password?</router-link>
                     <div class="loginBox_button">
-                        <button :disabled="!isEmailValid" type="submit" >Sign in</button>
+                        <button type="submit" >Sign in</button>
                         <button id="show-join" @click="showJoin = true">Sign up</button>
                     </div>
                 <join-modal v-if="showJoin" @close="showJoin = false">
@@ -63,9 +63,7 @@ export default {
             })
             .then((res) => {
                 if (res.data.success == true) {
-                    // const path = `/main-page/board/home`
-                    // if (this.$route.path !== path) this.$router.push(path)
-                    // if(this.$route.path!=='/main-page/board/home') this.$router.push('/main-page/board/home')
+                    this.$store.commit('setUsername', res.data.user_name)
                     this.$router.push('/main-page/board/home')
                 }
                 if (res.data.success == false) {

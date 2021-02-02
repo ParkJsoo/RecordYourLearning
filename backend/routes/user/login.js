@@ -26,17 +26,12 @@ router.post('/', function (req, res) {
         'user_pw': req.body.loginData.user_pw
     };
     connection.query('SELECT email, password, name FROM user_info WHERE email = "' + loginData.user_email + '"', function (err, row) {
-        if (err) {
-            res.json({ // 매칭되는 아이디 없을 경우
-                success: false,
-                message: 'email을 확인해 주세요'
-            })
-        }
         if (row[0] !== undefined && row[0].email === loginData.user_email) {
             bcrypt.compare(loginData.user_pw, row[0].password, function (err, res2) {
                 if (res2) {
                     res.json({ // 로그인 성공 
                         success: true,
+                        user_name: row[0].name
                     })
                 }
                 else {
@@ -45,6 +40,12 @@ router.post('/', function (req, res) {
                         message: '비밀번호를 확인해 주세요'
                     })
                 }
+            })
+        }
+        else {
+            res.json({ // 매칭되는 아이디 없을 경우
+                success: false,
+                message: 'email을 확인해 주세요'
             })
         }
     })

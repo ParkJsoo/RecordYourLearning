@@ -5,7 +5,7 @@
             <i class="fab fa-sistrix"></i>
         </div>
         <div class="top_button_box">
-            <button @click="goHome" type="button" class="top_button">LOGOUT</button>
+            <button @click="logout" type="button" class="top_button">LOGOUT</button>
             <button type="button" class="top_button">MODIFY</button>
         </div>
     </div>
@@ -14,7 +14,8 @@
 <script>
 export default {
     methods: {
-        goHome : function() {
+        logout : function() {
+            this.$store.commit('clearUsername')
             this.$router.push('/')
         }
     }

@@ -1,6 +1,6 @@
 <template>
     <div id="side-nav">
-        <div class="main-logo">
+        <div class="main-logo" @click="goHome">
             <img src="../assets/images/logo/logo.png" />
             <div class="main-logo_title">
                 <span>Record</span>
@@ -11,7 +11,7 @@
         <div class="main-profile">
             <span class="notification">1</span>
             <img src="../assets/images/member-jk.jpg">
-            <div class="main-userName">JungKook</div>
+            <div class="main-userName">{{ $store.state.username}}</div>
         </div>
         <div class="nav">
             <div v-bind:class="{ upsideA: isActive1 }"><div class="nav_conA" v-bind:class="{ upsideB: isActive1 }"></div></div>
@@ -53,9 +53,6 @@ export default {
             isActive4: false,
         }
     },
-    created() {
-        this.$router.push({ name: 'home'})
-    },
     methods: {
         goHome: function() {
             this.$router.push({ name: 'home'})
@@ -86,6 +83,7 @@ export default {
         margin-right: 10px;
         width: 80px;
         height: 80px;
+        cursor: pointer;
     }
     .main-logo_title {
         cursor: default;
@@ -97,6 +95,7 @@ export default {
         color: white;
         font-size: 1.3rem;
         font-weight: 600;
+        cursor: pointer;
     }
     .main-profile {
         text-align: center;

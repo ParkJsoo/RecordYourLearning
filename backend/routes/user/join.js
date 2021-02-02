@@ -40,7 +40,7 @@ router.post('/', function(req, res) {
               });
               res.json({
                 success: true,
-                message: '회원가입을 축하합니다!'
+                message: '회원가입을 환영합니다!'
               })
             }
           })

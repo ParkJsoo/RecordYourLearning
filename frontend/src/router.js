@@ -9,6 +9,7 @@ import Tomorrow from './components/board/date/Tomorrow.vue';
 import ThisWeek from './components/board/date/ThisWeek.vue';
 import NextWeek from './components/board/date/NextWeek.vue';
 import Month from './components/board/date/Month.vue';
+import NotFound from './components/NotFound.vue';
 
 Vue.use(VueRouter);
 
@@ -32,5 +33,6 @@ export default new VueRouter({
                 { path: 'month', name: 'month', component: Month },
             ]
         },
+        { path: '*', component: NotFound }
     ],
 });
