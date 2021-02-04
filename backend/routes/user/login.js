@@ -1,10 +1,12 @@
 var express = require('express');
 var router = express.Router();
-var path = require('path');
 var mysql = require('mysql');
 
 const bcrypt = require('bcrypt');
-const jwt = require('jsonwebtoken')
+const jwt = require('jsonwebtoken');
+const jwtConfig = require('../../config/jwt');
+const SECRET_KEY = jwtConfig.SECRET_KEY;
+const EXPIRATION_DATE = jwtConfig.EXPIRATION_DATE;
 
 var connection = mysql.createConnection({
     host : 'localhost',
@@ -15,6 +17,7 @@ var connection = mysql.createConnection({
 });
 
 connection.connect();
+
 
 /* GET users listing. */
 router.get('/', function(req, res, next) {
@@ -29,9 +32,9 @@ router.post('/', function (req, res) {
     connection.query('SELECT email, password, name FROM user_info WHERE email = "' + loginData.user_email + '"', function (err, row) {
         if (row[0] !== undefined && row[0].email === loginData.user_email) {
             bcrypt.compare(loginData.user_pw, row[0].password, function (err, res2) {
-                const token = jwt.sign({ loginData }, "vuex-with-token", {
+                const token = jwt.sign({ loginData }, SECRET_KEY, {
                     algorithm: "HS256",
-                    expiresIn: '1d'})
+                    expiresIn: EXPIRATION_DATE})
                 if (res2) {
                     res.json({ // 로그인 성공
                         token,
