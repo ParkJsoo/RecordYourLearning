@@ -2,7 +2,7 @@
     <div id="home-todayBox">
         <div class="home-homeBox-header">
             <span class="home-homeBox-header_left">Today</span>
-            <button class="home-homeBox-header_right" type="button" @click="goToday">MORE</button>
+            <button class="home-homeBox-header_right" type="button" @click="moreToday">MORE</button>
         </div>
         <ul class="home-todayList-group">
             <li class="home-todayList">
@@ -26,12 +26,21 @@
 </template>
 
 <script>
+// import { fetchToday } from '../../../api/index'
+
 export default {
     methods: {
-        goToday : function() {
+        moreToday : function() {
             this.$router.push('/main-page/board/today')
-        }
-    }
+        },
+        // async fetchData() {
+        //     const response = await fetchToday();
+        //     console.log(response);
+        // }
+    },
+    // created() {
+    //     this.fetchData();
+    // }
 }
 </script>
 

@@ -16,26 +16,29 @@
             </div>
         </div>
         <div class="login-right">
-            <form class="loginBox" @submit.prevent="submitLogin">
+            <div class="loginBox">
                 <div class="loginBox_title">Sign In</div>
-                    <div class="login_info">
-                        <label for="user_email">USER E-MAIL</label><input id="user_email" v-model="loginData.user_email" type="text">
-                        <label for="user_pw">USER PASSWORD</label><input id="user_pw" v-model="loginData.user_pw" type="password">
-                    </div>
+                    <form>
+                        <div class="login_info">
+                            <label for="user_email">USER E-MAIL</label><input id="user_email" v-model="loginData.user_email" type="text">
+                            <label for="user_pw">USER PASSWORD</label><input id="user_pw" v-model="loginData.user_pw" type="password">
+                        </div>
+                    </form>
                     <router-link to="/" class="find_user_info">Forgot your Password?</router-link>
                     <div class="loginBox_button">
-                        <button type="submit" >Sign in</button>
+                        <button type="submit" :disabled="!isEmailValid" @click.prevent="submitLogin">Sign in</button>
                         <button id="show-join" @click="showJoin = true">Sign up</button>
                     </div>
                 <join-modal v-if="showJoin" @close="showJoin = false">
                 </join-modal>
-            </form>
+            </div>
         </div>
     </div>
 </template>
 
 <script>
 import JoinModal from './JoinModal.vue'
+import { loginUser } from '../api/index'
 import { validateEmail } from '../utils/validation'
 
 export default {
@@ -58,13 +61,16 @@ export default {
     },
     methods: {
         submitLogin: function (event) { // eslint-disable-line no-unused-vars
-            this.$http.post('/api/login', { 
-                loginData: this.loginData
-            })
+            loginUser({ 
+                loginData: this.loginData}
+            )
             .then((res) => {
                 if (res.data.success == true) {
+                    console.log(res.data.token)
+                    this.$store.commit('setToken', res.data.token)
                     this.$store.commit('setUsername', res.data.user_name)
                     this.$router.push('/main-page/board/home')
+                    console.log('스토어', this.$store.state.token)
                 }
                 if (res.data.success == false) {
                     alert(res.data.message);
@@ -74,6 +80,7 @@ export default {
                 alert(error.message)
             })
         }
+        
     }
 }
 </script>

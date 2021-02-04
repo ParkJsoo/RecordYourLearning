@@ -32,6 +32,7 @@
 </template>
 
 <script>
+import { registerUser } from '../api/index'
 import { validateEmail } from '../utils/validation'
 
 export default {
@@ -79,8 +80,8 @@ export default {
             }
         },
         submitJoin: function (event) { // eslint-disable-line no-unused-vars
-            this.$http.post('/api/join', { 
-            joinData: this.joinData
+            registerUser({ 
+                joinData: this.joinData
             })
             .then((res) => {
                 if (res.data.success == true) {

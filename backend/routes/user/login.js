@@ -4,6 +4,7 @@ var path = require('path');
 var mysql = require('mysql');
 
 const bcrypt = require('bcrypt');
+const jwt = require('jsonwebtoken')
 
 var connection = mysql.createConnection({
     host : 'localhost',
@@ -28,8 +29,12 @@ router.post('/', function (req, res) {
     connection.query('SELECT email, password, name FROM user_info WHERE email = "' + loginData.user_email + '"', function (err, row) {
         if (row[0] !== undefined && row[0].email === loginData.user_email) {
             bcrypt.compare(loginData.user_pw, row[0].password, function (err, res2) {
+                const token = jwt.sign({ loginData }, "vuex-with-token", {
+                    algorithm: "HS256",
+                    expiresIn: '1d'})
                 if (res2) {
-                    res.json({ // 로그인 성공 
+                    res.json({ // 로그인 성공
+                        token,
                         success: true,
                         user_name: row[0].name
                     })
