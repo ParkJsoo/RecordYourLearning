@@ -13,19 +13,20 @@
                     </div>
                     <div class="modal-body" name="body">
                         <label for="homework_title">Title</label>
-                        <input class="homeworkInput" id="homework_title" v-model="homework_title" type="text">
+                        <input class="homeworkInput" id="homework_title" v-model="homeworkItem.homework_title" type="text">
                         <label for="homework_deadline1">Deadline</label>
                         <div>
-                            <input class="homeworkInput inputHalf" id="homework_deadline1" v-model="homework_deadline1" type="date"> ~
-                            <input class="homeworkInput inputHalf" id="homework_deadline2" v-model="homework_deadline2" type="date">
+                            <input class="homeworkInput inputHalf" id="homework_deadline1" v-model="homeworkItem.homework_date1" type="date"> ~
+                            <input class="homeworkInput inputHalf" id="homework_deadline2" v-model="homeworkItem.homework_date2" type="date">
                         </div>
                         <label for="professor">Professor</label>
-                        <input class="homeworkInput inputHalf" id="professor" v-model="professor" type="text">
-                        <label for="contents">Contents</label><textarea id="contents" v-model="contents"></textarea>
+                        <input class="homeworkInput inputHalf" id="professor" v-model="homeworkItem.homework_professor" type="text">
+                        <label for="contents">Contents</label>
+                        <textarea id="contents" v-model="homeworkItem.homework_contents"></textarea>
                     </div>
                     <div class="modal-footer" name="footer">
-                        <button class="edit-button" @click="$emit('close-new')">
-                            Edit
+                        <button class="edit-button" @click="submitHomework">
+                            Submit
                         </button>
                     </div>
                 </div>
@@ -35,8 +36,41 @@
 </template>
 
 <script>
-export default {
+import { writeHomework } from '../../../api/index'
 
+export default {
+    data() {
+        return {
+            homeworkItem: {
+                userid : this.$store.state.userid,
+                homework_title : '',
+                homework_date1 : '',
+                homework_date2 : '',
+                homework_professor : '',
+                homework_contents : ''
+            },
+        }
+    },
+    methods: {
+        submitHomework: function (event) { // eslint-disable-line no-unused-vars
+            writeHomework({
+                homeworkItem: this.homeworkItem
+            })
+            .then((res) => {
+                if (res.data.success == true) {
+                    alert(res.data.message);
+                    this.$emit('close-new');
+                    // this.$router.go(this.$router.currentRoute);
+                }
+                if (res.data.success == false) {
+                    alert(res.data.message);
+                }
+            })
+            .catch(function (error) { // eslint-disable-line no-unused-vars
+                alert('error')
+            })
+        },
+    }
 }
 </script>
 

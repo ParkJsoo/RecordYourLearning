@@ -20,9 +20,9 @@ function loginUser(loginData) {
     return instance.post('login', loginData);
 }
 
-// 학습 노트 데이터를 조회하는 API
-// function fetchToday() {
-//     return instance.get('board/home/today')
-// }
+// homework에 새글 게시하는 API
+function writeHomework(homeworkItem) {
+    return instance.post('homework/write', homeworkItem)
+}
 
-export { registerUser, loginUser }
+export { registerUser, loginUser, writeHomework }

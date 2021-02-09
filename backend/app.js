@@ -19,6 +19,7 @@ connection.connect();
 var indexRouter = require('./routes/index');
 var join = require('./routes/user/join');
 var login = require('./routes/user/login');
+var homework = require('./routes/board/homework')
 
 var app = express();
 
@@ -35,6 +36,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use('/', indexRouter);
 app.use('/join', join);
 app.use('/login', login);
+app.use('/main-page/board/api/homework', homework);
 
 app.use(express.static('public'))
 app.use(bodyParser.json())

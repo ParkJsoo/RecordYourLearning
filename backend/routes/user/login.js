@@ -29,17 +29,21 @@ router.post('/', function (req, res) {
         'user_email': req.body.loginData.user_email,
         'user_pw': req.body.loginData.user_pw
     };
-    connection.query('SELECT email, password, name FROM user_info WHERE email = "' + loginData.user_email + '"', function (err, row) {
+    connection.query('SELECT email, password, name, id FROM user_info WHERE email = "' + loginData.user_email + '"', function (err, row) {
         if (row[0] !== undefined && row[0].email === loginData.user_email) {
             bcrypt.compare(loginData.user_pw, row[0].password, function (err, res2) {
                 const token = jwt.sign({ loginData }, SECRET_KEY, {
                     algorithm: "HS256",
                     expiresIn: EXPIRATION_DATE})
+                if (err) {
+                    res.status(500).send('Internal Server Error');
+                }
                 if (res2) {
                     res.json({ // 로그인 성공
                         token,
                         success: true,
-                        user_name: row[0].name
+                        user_name: row[0].name,
+                        user_id: row[0].id
                     })
                 }
                 else {

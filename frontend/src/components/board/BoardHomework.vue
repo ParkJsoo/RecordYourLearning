@@ -109,6 +109,13 @@ import NewHomework from './modal/NewHomework.vue'
 export default {
     data: function() {
         return {
+            homeworkItem: {
+                homework_title : '숙제',
+                homework_date1 : '2021-02-01',
+                homework_date2 : '2021-02-05',
+                homework_professor : '김철수 교수님',
+                homework_dDay : 'D - 1'
+            },
             newHomework: false
         }
     },
