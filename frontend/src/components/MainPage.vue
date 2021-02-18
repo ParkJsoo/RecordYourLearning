@@ -24,6 +24,8 @@ export default {
     #main-page {
         width: 100%;
         height: 100%;
+        min-width: 1300px;
+        min-height: 850px;
         display: flex;
         background-color: #f3f3f3;
     }

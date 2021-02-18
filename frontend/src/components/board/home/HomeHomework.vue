@@ -41,7 +41,7 @@ export default {
 
 <style scoped>
     #home-homeworkBox {
-        height: 150px;
+        height: 55%;
         padding: 15px;
         border-radius: 8px;
         box-shadow: 0 3px 6px 0 rgba(66, 66, 66, 0.16);

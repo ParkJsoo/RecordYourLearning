@@ -51,34 +51,40 @@ export default {
 
 <style scoped>
     #board-home {
-        padding: 40px 20px;
+        width: 100%;
+        height: 100%;
         display: flex;
         flex-direction: column;
+        justify-content: space-around;
+        align-items: center;
     }
     .home-sectionA {
-        height: 50%;
+        width: 95%;
+        height: 60%;
         display: flex;
         justify-content: space-around;
-        margin-bottom: 20px;
+        align-items: center;
     }
     .home-sectionA_1 {
         width: 60%;
+        height: 80%;
     }
     .home-sectionA_2 {
         width: 35%;
+        height: 80%;
         display: flex;
         flex-direction: column;
         justify-content: space-between;
     }
     .home-sectionB {
-        width: 100%;
-        height: 50%;
+        width: 95%;
+        height: 40%;
         display: flex;
+        justify-content: space-around;
     }
     .home-sectionB_1 {
         width: 18.2%;
         height: 250px;
-        margin: 0 auto;
         padding: 35px 0;
         border-radius: 8px;
         box-shadow: 0 3px 6px 0 rgba(66, 66, 66, 0.16);
@@ -89,11 +95,10 @@ export default {
     .home-sectionB_2 {
         width: 35%;
         height: 250px;
-        margin: 0 auto;
-        /* border-radius: 8px;
+        border-radius: 8px;
         box-shadow: 0 3px 6px 0 rgba(66, 66, 66, 0.16);
         border: solid 1px #d6d6d6;
-        background-color: #ffffff; */
+        background-color: #ffffff;
     }
     .canvas {
         height: 200px;

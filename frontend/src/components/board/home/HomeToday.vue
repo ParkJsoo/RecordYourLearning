@@ -46,7 +46,6 @@ export default {
 
 <style scoped>
     #home-todayBox{
-        height: 310px;
         padding: 40px;
         border-radius: 8px;
         box-shadow: 0 3px 6px 0 rgba(66, 66, 66, 0.16);

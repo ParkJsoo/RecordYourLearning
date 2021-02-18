@@ -136,6 +136,7 @@ export default {
     }
     .today-board {
         width: 100%;
+        height: 100%;
         padding: 0 50px;
         display: flex;
         flex-wrap: wrap;
@@ -143,20 +144,20 @@ export default {
         box-sizing: border-box;
     }
     .today-itemA {
-        width: 520px;
+        width: 48%;
         height: 50px;
         box-sizing: border-box;
-        margin-bottom: 10px;
+        margin-bottom: 30px;
         border-radius: 8px;
         box-shadow: 0 3px 6px 0 rgba(66, 66, 66, 0.16);
         border: solid 1px #d6d6d6;
         background-color: #fff;
     }
     .today-itemB {
-        width: 520px;
+        width: 48%;
         height: auto;
         box-sizing: border-box;
-        margin-bottom: 10px;
+        margin-bottom: 30px;
         border-radius: 8px;
         box-shadow: 0 3px 6px 0 rgba(66, 66, 66, 0.16);
         border: solid 1px #d6d6d6;
