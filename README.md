@@ -31,6 +31,7 @@
     - connect-flash
     - passport
     - passport-local
+    - jsonwebtoken
     - bcrypt
 
 
