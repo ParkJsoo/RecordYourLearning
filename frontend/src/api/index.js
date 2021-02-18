@@ -20,9 +20,15 @@ function loginUser(loginData) {
     return instance.post('login', loginData);
 }
 
+// homework 데이터 가져오는 API
+function readHomework(userInfo) {
+    return instance.get('homework/read', userInfo)
+}
+
 // homework에 새글 게시하는 API
 function writeHomework(homeworkItem) {
     return instance.post('homework/write', homeworkItem)
 }
 
 export { registerUser, loginUser, writeHomework }
+export default { readHomework }

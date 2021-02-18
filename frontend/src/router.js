@@ -1,15 +1,5 @@
 import Vue from 'vue';
 import VueRouter from 'vue-router';
-import LoginPage from './components/LoginPage.vue';
-import MainPage from './components/MainPage.vue';
-import BoardHome from './components/board/BoardHome.vue';
-import BoardHomework from './components/board/BoardHomework.vue';
-import Today from './components/board/date/Today.vue';
-import Tomorrow from './components/board/date/Tomorrow.vue';
-import ThisWeek from './components/board/date/ThisWeek.vue';
-import NextWeek from './components/board/date/NextWeek.vue';
-import Month from './components/board/date/Month.vue';
-import NotFound from './components/NotFound.vue';
 
 Vue.use(VueRouter);
 
@@ -21,18 +11,18 @@ VueRouter.prototype.push = function push(location) {
 export default new VueRouter({
     mode: 'history',
     routes: [
-        { path: '/', component: LoginPage },
-        { path: '/main-page/:boardId', component: MainPage,
+        { path: '/', component: () => import('./components/LoginPage.vue')},
+        { path: '/main-page/:boardId', component: () => import('./components/MainPage.vue'),
             children: [
-                { path: 'home', name: 'home', component: BoardHome },
-                { path: 'homework', name: 'homework', component: BoardHomework },
-                { path: 'today', name: 'today', component: Today },
-                { path: 'tomorrow', name: 'tomorrow', component: Tomorrow },
-                { path: 'this-week', name: 'this-week', component: ThisWeek },
-                { path: 'next-week', name: 'next-week', component: NextWeek },
-                { path: 'month', name: 'month', component: Month },
+                { path: 'home', name: 'home', component: () => import('./components/board/BoardHome.vue')},
+                { path: 'homework', name: 'homework', component: () => import('./components/board/BoardHomework.vue')},
+                { path: 'today', name: 'today', component: () => import('./components/board/date/Today.vue')},
+                { path: 'tomorrow', name: 'tomorrow', component: () => import('./components/board/date/Tomorrow.vue')},
+                { path: 'this-week', name: 'this-week', component: () => import('./components/board/date/ThisWeek.vue')},
+                { path: 'next-week', name: 'next-week', component: () => import('./components/board/date/NextWeek.vue')},
+                { path: 'month', name: 'month', component: () => import('./components/board/date/Month.vue')},
             ]
         },
-        { path: '*', component: NotFound }
+        { path: '*', component: () => import('./components/NotFound.vue')}
     ],
 });
